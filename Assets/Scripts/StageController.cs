@@ -5,7 +5,7 @@ using UniRx;
 
 public class StageController : SingletonMonoBehaviour<StageController> {
 
-	public float destroyTimer = 0.5f;
+	public float destroyTimer;
 
 
 	void Awake ()
@@ -18,10 +18,11 @@ public class StageController : SingletonMonoBehaviour<StageController> {
 
 	// Use this for initialization
 	void Start () {
-		model = new Stage(15,13);
+		destroyTimer = Const.DESTROY_EXPLOSION_TIMER;
+		model = new Stage(Const.WIDTH,Const.HEIGHT);
 		view = GetComponent<StageView>();
-		view.Width = 15;
-		view.Height = 13;
+		view.Width = Const.WIDTH;
+		view.Height = Const.HEIGHT;
 		view.InitiView(model.GetField());
 
 	}
@@ -53,7 +54,7 @@ public class StageController : SingletonMonoBehaviour<StageController> {
 		model.ExplosionBomb(x,y,range);
 		AudioManager.Instance.PlaySE(Audio.EXPLOSION);
 	}
-	/*
+
 	IEnumerator DestroyExplosion (int x, int y, float timer, int item = Const.FLOOR)
 	{
 		yield return new WaitForSeconds (timer);
@@ -62,7 +63,7 @@ public class StageController : SingletonMonoBehaviour<StageController> {
 			GenerateItem(x,y,item);
 		}
 	}
-	*/
+
 
 	IEnumerator DestroyExplosion (int x, int y, float timer)
 	{
@@ -73,39 +74,38 @@ public class StageController : SingletonMonoBehaviour<StageController> {
 //			GenerateItem(x,y,item);
 //		}
 	}
-	/*
+
 	public void GenerateExplosion(int x,int y,int item = Const.FLOOR){
 		view.GenerateExplosion(x,y,destroyTimer);
 		view.DestroyBlock(x,y);
 		GameManager.Instance.ExplosionCheck(x,y);
 		StartCoroutine(DestroyExplosion(x,y,destroyTimer,item));
-	}*/
+	}
 
 	public void GenerateExplosion(int x,int y){
-		Debug.Log("GenerateExplosion");
+		
 		view.GenerateExplosion(x,y,destroyTimer);
-		Debug.Log("GenerateExplosion2");
+
 		view.DestroyBlock(x,y);
-		Debug.Log("GenerateExplosion3");
+	
 
 		GameManager.Instance.ExplosionCheck(x,y);
-		Debug.Log("GenerateExplosion4");
+
 		StartCoroutine(DestroyExplosion(x,y,destroyTimer));
-		Debug.Log("GenerateExplosion5");
 	}
-	/*
+
 	public void GenerateItem(int x,int y,int item){
 		view.GenerateItem (x, y, item);
 	}
 
-	*/
+
 
 	public void GenerateItem(int x,int y){
 		//view.GenerateItem (x, y);
 	}
 	public void CheckFieldState (int x, int y, PlayerController player)
 	{
-		/*
+		
 		int num = model.GetField () [x, y];
 
 		if (num == Const.BOMBITEM) {
@@ -124,7 +124,7 @@ public class StageController : SingletonMonoBehaviour<StageController> {
 			view.DestroyBlock(x,y);
 		}
 
-		*/
+
 
 	}
 }

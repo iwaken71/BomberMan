@@ -7,17 +7,18 @@ public class PlayerController : MonoBehaviour {
 	public Point CurrentPoint;
 	public Point Destination;
 	int playerID = 0;
-	float speed = 3;
-	int bombRange = 3;
-	int bombMaxCount = 1;
-	public int bombCount = 0;
+	float speed;
+	int bombRange;
+	int bombMaxCount;
+	public int bombCount;
 
 	// Use this for initialization
 	void Start () {
 		CurrentPoint = Current(transform.position);
 		Destination = Current(transform.position);
-		bombRange = 3;
-		bombMaxCount = 1;
+		speed = Const.DEFAULT_PLAYER_SPEED;
+		bombRange = Const.DEFAULT_BOMB_RANGE;
+		bombMaxCount = Const.DEFAULT_BOMB_MAXCOUNT;
 		bombCount = 0;
 	}
 	
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour {
 
 	void PutBomb ()
 	{
+		Debug.Log(bombMaxCount);
 		if (bombCount < bombMaxCount) {
 			BombInfo info = new BombInfo(this,bombRange);
 			StageController.Instance.PutBomb (CurrentPoint.x, CurrentPoint.y,info);
@@ -138,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void SpeedUp ()
 	{
-		if (speed <= 3.0f) {
+		if (speed <= Const.DEFAULT_PLAYER_SPEED) {
 			speed *= 1.5f;
 		}
 	}

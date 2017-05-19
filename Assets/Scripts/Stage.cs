@@ -13,8 +13,8 @@ public class Stage{
 
 	public Stage ()
 	{	
-		Width = 15;
-		Height = 13;
+		Width = Const.WIDTH;
+		Height = Const.HEIGHT;
 		field = new int[Width,Height];
 	}
 	public Stage (int width,int height)
@@ -80,7 +80,7 @@ public class Stage{
 		for (int i = 0; i < Width; i++) {
 			for (int j = 0; j < Height; j++) {
 				if (EqualField (i, j, Const.BLOKENWALL)) {
-					if (Random.Range (0.0f, 1.0f) < 0.3f) {
+					if (Random.Range (0.0f, 1.0f) < Const.ITEM_RATIO) {
 						float random = Random.Range (0.0f, 1.0f);
 
 						for (int k = 0; k <= 3; k++) {
@@ -154,7 +154,7 @@ public class Stage{
 			
 
 			if (num == Const.EXPLOSION) {
-			/*
+
 				if (EqualField (x, y, Const.BOMBITEMBLOCK)) {
 					StageController.Instance.GenerateExplosion (x, y,Const.BOMBITEM);
 				} else if (EqualField (x, y, Const.FIREITEMBLOCK)) {
@@ -166,7 +166,7 @@ public class Stage{
 				} else {
 					StageController.Instance.GenerateExplosion (x, y);
 				}
-				*/
+
 
 				StageController.Instance.GenerateExplosion (x, y);
 			}

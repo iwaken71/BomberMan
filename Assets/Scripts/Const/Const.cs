@@ -14,10 +14,16 @@ public class Const {
 	public const int FIREITEMBLOCK= 10;
 	public const int HEARTITEMBLOCK= 11;
 	public const int SHOESITEMBLOCK= 12;
-	public const int PLAYER1= 9;
+	public const int PLAYER1= 13;
 
+	public const float ITEM_RATIO= 0.4f;
 
-	public const float BOMBTIMER = 3.0f;
+	public const int DEFAULT_BOMB_RANGE = 10;
+	public const int DEFAULT_BOMB_MAXCOUNT = 10;
+	public const float DEFAULT_PLAYER_SPEED = 3.0f;
+	public const float DESTROY_EXPLOSION_TIMER = 0.5f;
+
+	public const float BOMBTIMER = 2.0f;
 	public const int WIDTH= 15;
 	public const int HEIGHT= 13;
 

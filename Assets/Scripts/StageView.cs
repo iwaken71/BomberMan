@@ -108,13 +108,6 @@ public class StageView : MonoBehaviour{
 		//objectDic.Add(PointToInt(new Point(x,y)), obj);
 		Destroy(obj,timer);
 	}
-//	public void GenerateItem (int x, int y,int itme)
-//	{
-//		//Shake(Camera.main.gameObject);
-//		GameObject obj =  Instantiate(explosionPrefab,new Vector3(x,0.5f,y),Quaternion.identity) as GameObject;
-//		objectDic.Add(PointToInt(new Point(x,y)), obj);
-//		Destroy(obj,timer);
-//	}
 
 	public void DestroyBlock (int x, int y)
 	{
@@ -146,7 +139,7 @@ public class StageView : MonoBehaviour{
     public void Shake(GameObject shakeObj){
         iTween.ShakePosition(shakeObj,iTween.Hash("x",0.3f,"y",0.3f,"time",0.5f));
     }
-    /*
+
     public void GenerateItem (int x, int y, int item)
 	{
 		if (item == Const.BOMBITEM) {
@@ -163,7 +156,7 @@ public class StageView : MonoBehaviour{
 		}
 
 	}
- */
+ 
 
 }
 
